@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Sat Jun 11 23:24:55 PDT 2011
+" last modified: Sun Jun 12 14:00:58 PDT 2011
 
 set nocompatible
 set bs=2
@@ -72,9 +72,11 @@ function! ToggleFolds()
     if b:FoldsOpen
         " Toggle folding off.
         normal zM
+        echo "folds: closed"
     else
         " Toggle folding on.
         normal zR
+        echo "folds: opened"
     endif
 
     " Toggle the FoldsOpen variable to indicate the new fold setting.
