@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Sat Jun 11 22:27:48 PDT 2011
+" last modified: Sat Jun 11 23:24:55 PDT 2011
 
 set nocompatible
 set bs=2
@@ -57,7 +57,28 @@ function! UpdateLastModifiedDate()
         :r!date
         normal kJ
     endif
-    normal ``
+endfunction
+
+" Set up \f and \F to open and close all fold respectively.
+nmap <leader>f :call ToggleFolds()<CR>
+function! ToggleFolds()
+    " Set the ToggleFolds variable for the current buffer to false (0) if
+    " it didn't exists before. This indicates that folds are all intially
+    " closed.
+    if !exists('b:FoldsOpen')
+        let b:FoldsOpen = 0
+    endif
+
+    if b:FoldsOpen
+        " Toggle folding off.
+        normal zM
+    else
+        " Toggle folding on.
+        normal zR
+    endif
+
+    " Toggle the FoldsOpen variable to indicate the new fold setting.
+    let b:FoldsOpen = !b:FoldsOpen
 endfunction
 
 if has("autocmd")
