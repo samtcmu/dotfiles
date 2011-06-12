@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/opt/local/share/vim/vim73'
+let g:netrw_dirhist_2='/Users/samt/.vim/ftplugin/objc'
+let g:netrw_dirhist_3='/Users/samt/.vim/ftplugin'
+let g:netrw_dirhist_4='/Users/samt/Downloads/TheElements'
+let g:netrw_dirhist_5='/Users/samt/Downloads/TheElements/Classes'
+let g:netrw_dirhist_6='/Users/samt/documents/dropbox/config2'
+let g:netrw_dirhist_7='/Users/samt/.fontconfig'
+let g:netrw_dirhist_8='/Users/samt/.macports'
+let g:netrw_dirhist_9='/Users/samt/.smb'

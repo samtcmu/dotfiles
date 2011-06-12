@@ -1,0 +1,32 @@
+# name: Sam Tetruashvili
+# title: .gitconfig
+# date created: Sat May 29 14:16:26 EDT 2010
+# description: Git configuration file.
+
+# last modified: Sun Mar  6 12:09:58 PST 2011
+
+# Set the user name and email.
+[user]
+    name = Sam Tetruashvili
+    email = samt@alumni.cmu.edu
+
+# Turn on colors in the Git (makes the log prettier).
+[color]
+    ui = true
+
+# Vim is my main editor.
+[core]
+    editor = vim
+
+# Git shortcuts.
+[alias]
+    amend = commit --amend
+    logd = log --all --date-order --decorate=full -- 
+    logf = log --follow --all --date-order --decorate=full
+    graph = log --graph --all --date-order --decorate=full
+    tagged = log --graph --all --date-order --decorate=full --simplify-by-decoration
+    grep = grep --color
+    grep-tree = !~/config/scripts/bin/git_grep_tree
+    smallgraph = log --graph --all --date-order --pretty=short --abbrev-commit --decorate=full
+    stat = log --stat --decorate=full
+
