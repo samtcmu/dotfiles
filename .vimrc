@@ -3,13 +3,12 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Sun Jun 12 14:00:58 PDT 2011
+" last modified: Sun Jun 26 01:12:33 PDT 2011
 
 set nocompatible
 set bs=2
 set number
 syn on
-color desert
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -17,6 +16,15 @@ set ruler
 set spellfile=~/.vim/spellfile.add
 set tags=tags;/
 set history=100
+
+if has('gui_running')
+    " color solarized
+    " set bg=dark
+    color pablo
+    set guioptions= 
+else
+    color desert
+endif
 
 " Activate the man page plugin.
 runtime ftplugin/man.vim
