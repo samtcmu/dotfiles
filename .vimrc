@@ -26,6 +26,10 @@ else
     color desert
 endif
 
+" Initialize the pathogen plugin.
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " Activate the man page plugin.
 runtime ftplugin/man.vim
 
