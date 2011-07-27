@@ -1,0 +1,16 @@
+# This file contains bash settings that are specific to the development
+# environment at Google.
+
+export PATH='~/config/scripts/bin':$PATH
+
+export EDITOR='vim'
+
+export P4CONFIG=.p4config
+export P4DIFF="/usr/bin/vimdiff"
+export P4MERGE=/home/build/public/eng/perforce/mergep4.tcl 
+export P4EDITOR=$EDITOR
+
+alias gtags="/home/build/nonconf/google3/tools/tags/gtags.sh"
+
+source ~/config/scripts/bin/git-prompt.sh
+

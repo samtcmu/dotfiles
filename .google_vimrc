@@ -1,0 +1,2 @@
+" Enable gtags
+source /home/build/nonconf/google3/tools/tags/gtags.vim

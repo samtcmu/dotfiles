@@ -10,8 +10,8 @@ set bs=2
 set number
 syn on
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set ruler
 set spellfile=~/.vim/spellfile.add
 set tags=tags;/
@@ -102,6 +102,9 @@ if has("autocmd")
     filetype plugin on
 
     " Automatically set Makefiles to use tabs instead of spaces.
-    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType make setlocal ts=2 sts=2 sw=2 noexpandtab
 endif
+
+" Google specific includes.
+source ~/config/dotfiles/.google_vimrc
 

@@ -8,7 +8,7 @@
 # Set the user name and email.
 [user]
     name = Sam Tetruashvili
-    email = samt@alumni.cmu.edu
+    email = samtet@google.com
 
 # Turn on colors in the Git (makes the log prettier).
 [color]
