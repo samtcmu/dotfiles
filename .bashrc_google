@@ -11,6 +11,29 @@ export P4MERGE=/home/build/public/eng/perforce/mergep4.tcl
 export P4EDITOR=$EDITOR
 
 alias gtags="/home/build/nonconf/google3/tools/tags/gtags.sh"
+alias find="find -L"
 
 source ~/config/scripts/bin/git-prompt.sh
+
+# Allow for shared history amongst all open terminal sessions.
+# See http://stackoverflow.com/questions/103944/real-time-history-export-amongst-bash-terminal-windows
+# for more information.
+function bash_history_sync() {
+    builtin history -a
+    HISTFILESIZE=$HISTFILESIZE
+    builtin history -c
+    builtin history -r
+}
+
+function history() {
+    bash_history_sync
+    builtin history "$@"
+}
+
+function prompt_func() {
+    git_prompt_func
+    bash_history_sync
+}
+
+PROMPT_COMMAND=prompt_func
 
