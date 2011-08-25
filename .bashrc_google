@@ -37,3 +37,7 @@ function prompt_func() {
 
 PROMPT_COMMAND=prompt_func
 
+# Macros for commonly used Collosus locations.
+VERIFICATION_SSTABLES_DIR='/cns/mh-d/home/ads-verification-be/sstables-prod/'
+VERIFICATION_BIGTABLE='/bigtable/srv-mh/ads-verification-be.verification-prod'
+
