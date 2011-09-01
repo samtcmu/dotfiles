@@ -3,5 +3,5 @@ source /home/build/nonconf/google3/tools/tags/gtags.vim
 
 " Enable syntax highlighting for .proto files.
 augroup filetype
-    au! BufRead,BufNewFile *.proto setfiletype proto
+    au! BufRead,BufNewFile *.proto   setfiletype proto
 augroup end

@@ -95,6 +95,14 @@ function! ToggleFolds()
     let b:FoldsOpen = !b:FoldsOpen
 endfunction
 
+" Set up \c to open the .cc file corresponding to the .h file open in the
+" current buffer.
+nmap <leader>c :e %:r.cc<CR>
+
+" Set up \h to open the .h file corresponding to the .cc file open in the
+" current buffer.
+nmap <leader>h :e %:r.h<CR>
+
 if has("autocmd")
     " Enable filetype detection and filetype plugins.
     " note: Filetype plugins are stored in ~/.vim/ftplugin.

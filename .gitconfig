@@ -3,7 +3,7 @@
 # date created: Sat May 29 14:16:26 EDT 2010
 # description: Git configuration file.
 
-# last modified: Sun Mar  6 12:09:58 PST 2011
+# last modified: Thu Sep  1 16:36:36 EDT 2011
 
 # Set the user name and email.
 [user]
@@ -24,6 +24,7 @@
     logd = log --all --date-order --decorate=full -- 
     logf = log --follow --all --date-order --decorate=full
     graph = log --graph --all --date-order --decorate=full
+    mygraph = log --graph --all --date-order --decorate=full --author=\"Sam Tetruashvili\"
     tagged = log --graph --all --date-order --decorate=full --simplify-by-decoration
     grep = grep --color
     grep-tree = !~/config/scripts/bin/git_grep_tree
