@@ -17,6 +17,13 @@ set spellfile=~/.vim/spellfile.add
 set tags=tags;/
 set history=100
 
+if exists("vimrc_loaded")
+    delfun GetCurrentDate
+    delfun UpdateLastModifiedDate
+    delfun ToggleFolds
+    delfun SearchSelectedText
+endif
+
 if has('gui_running')
     " color solarized
     " set bg=dark
@@ -51,7 +58,7 @@ nmap <leader>u :GundoToggle<CR>
 
 " Set up \d to updated the 'last modified' date in a file.
 nmap <leader>d :call UpdateLastModifiedDate()<CR>
-function!GetCurrentDate()
+function GetCurrentDate()
     normal mh
     :r!date
     normal $v0"vydd
@@ -62,7 +69,7 @@ endfunction
 " Set up \D to paste the current date (via the UNIX date command after the
 " current cursor location.
 nmap <leader>D :call GetCurrentDate()<CR>
-function! UpdateLastModifiedDate()
+function UpdateLastModifiedDate()
     normal gg
     if search("last modified:") > 0
         normal f:lld$
@@ -73,7 +80,7 @@ endfunction
 
 " Set up \f and \F to open and close all fold respectively.
 nmap <leader>f :call ToggleFolds()<CR>
-function! ToggleFolds()
+function ToggleFolds()
     " Set the ToggleFolds variable for the current buffer to false (0) if
     " it didn't exists before. This indicates that folds are all intially
     " closed.
@@ -113,6 +120,17 @@ if has("autocmd")
     autocmd FileType make setlocal ts=2 sts=2 sw=2 noexpandtab
 endif
 
+" Set up \\ to search for the currently selected text in visual mode.
+" BUG: This technique doesn't add the search query to Vim's search history.
+"      This search history is accessible in normal mode via 'q/'.
+vmap <leader>\ :call SearchSelectedText()<CR>
+function SearchSelectedText()
+    normal gvy
+    let @/ = @"
+endfunction
+
 " Google specific includes.
 source ~/config/dotfiles/.google_vimrc
+
+let vimrc_loaded = 1
 
