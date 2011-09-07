@@ -146,10 +146,7 @@ function SearchForString()
 
     " BUGFIX Manually add the currently selected text to the command line
     "        search history.
-    " TODO Adding the query to the command line search history in this way
-    "      causes the command line search window to flash when this command is
-    "      run. Find a way to disable this.
-    normal q/"/p:q
+    normal /<C-r>/<CR>
 endfunction
 
 " Google specific includes.
