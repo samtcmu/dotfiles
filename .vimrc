@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Sun Jun 26 01:12:33 PDT 2011
+" last modified: Wed Sep  7 11:23:48 EDT 2011
 
 set nocompatible
 set bs=2
@@ -16,6 +16,15 @@ set ruler
 set spellfile=~/.vim/spellfile.add
 set tags=tags;/
 set history=100
+
+if exists("vimrc_loaded")
+    delfun GetCurrentDate
+    delfun UpdateLastModifiedDate
+    delfun ToggleFolds
+    delfun SearchSelectedText
+    delfun SearchWordUnderCursor
+    delfun SearchForString
+endif
 
 if has('gui_running')
     " color solarized
@@ -51,7 +60,7 @@ nmap <leader>u :GundoToggle<CR>
 
 " Set up \d to updated the 'last modified' date in a file.
 nmap <leader>d :call UpdateLastModifiedDate()<CR>
-function!GetCurrentDate()
+function GetCurrentDate()
     normal mh
     :r!date
     normal $v0"vydd
@@ -62,7 +71,7 @@ endfunction
 " Set up \D to paste the current date (via the UNIX date command after the
 " current cursor location.
 nmap <leader>D :call GetCurrentDate()<CR>
-function! UpdateLastModifiedDate()
+function UpdateLastModifiedDate()
     normal gg
     if search("last modified:") > 0
         normal f:lld$
@@ -73,7 +82,7 @@ endfunction
 
 " Set up \f and \F to open and close all fold respectively.
 nmap <leader>f :call ToggleFolds()<CR>
-function! ToggleFolds()
+function ToggleFolds()
     " Set the ToggleFolds variable for the current buffer to false (0) if
     " it didn't exists before. This indicates that folds are all intially
     " closed.
@@ -104,4 +113,44 @@ if has("autocmd")
     " Automatically set Makefiles to use tabs instead of spaces.
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
 endif
+
+" Set up \\ to search for the currently selected text in visual mode.
+vmap <leader><leader> :call SearchSelectedText()<CR>
+function SearchSelectedText()
+    normal gv"sy
+    :call SearchForString()
+endfunction
+
+" Set up \\ to search for the word that the cursor is currently over
+" without jumping to the next instance of the query like * and ? do.
+nmap <leader><leader> :call SearchWordUnderCursor()<CR>
+function SearchWordUnderCursor()
+    " note: Save the cursor position in the s mark and return to it once the
+    "       current word is copied.
+    normal ms
+    normal "syiw
+    normal `s
+    let @s = '\<' . @s . '\>'
+
+    :call SearchForString()
+endfunction
+
+" This function will search for the string currently in the @s register.
+" TODO This function shouldn't really exist. It only exists because vim does
+"      not automatically add the search query to the command line search
+"      history when you issue ':let @/ = <query>'.
+function SearchForString()
+    " Set the search register to the selected text and search for it without
+    " going to the next instance of the query.
+    let @/ = @s
+
+    " BUGFIX Manually add the currently selected text to the command line
+    "        search history.
+    " TODO Adding the query to the command line search history in this way
+    "      causes the command line search window to flash when this command is
+    "      run. Find a way to disable this.
+    normal q/"/p:q
+endfunction
+
+let vimrc_loaded = 1
 
