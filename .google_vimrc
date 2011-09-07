@@ -5,3 +5,12 @@ source /home/build/nonconf/google3/tools/tags/gtags.vim
 augroup filetype
     au! BufRead,BufNewFile *.proto   setfiletype proto
 augroup end
+
+" Set up \c to open the .cc file corresponding to the .h file open in the
+" current buffer.
+nmap <leader>c :e %:r.cc<CR>
+
+" Set up \h to open the .h file corresponding to the .cc file open in the
+" current buffer.
+nmap <leader>h :e %:r.h<CR>
+
