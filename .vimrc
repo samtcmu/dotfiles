@@ -84,7 +84,7 @@ endfunction
 nmap <leader>f :call ToggleFolds()<CR>
 function ToggleFolds()
     " Set the ToggleFolds variable for the current buffer to false (0) if
-    " it didn't exists before. This indicates that folds are all intially
+    " it didn't exists before. This indicates that folds are all initially
     " closed.
     if !exists('b:FoldsOpen')
         let b:FoldsOpen = 0
