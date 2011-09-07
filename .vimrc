@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Wed Sep  7 11:23:48 EDT 2011
+" last modified: Wed Sep  7 13:16:41 EDT 2011
 
 set nocompatible
 set bs=2
@@ -146,10 +146,7 @@ function SearchForString()
 
     " BUGFIX Manually add the currently selected text to the command line
     "        search history.
-    " TODO Adding the query to the command line search history in this way
-    "      causes the command line search window to flash when this command is
-    "      run. Find a way to disable this.
-    normal q/"/p:q
+    normal /<C-r>/<CR>
 endfunction
 
 let vimrc_loaded = 1
