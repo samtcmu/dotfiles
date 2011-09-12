@@ -3,9 +3,9 @@
 # date created: Mon Jan 19 15:45:04 EST 2009
 # description: Configuration file for my bash shell.
 
-# last modified: Sat May 28 23:51:17 PDT 2011
+# last modified: Mon Sep 12 13:23:42 EDT 2011
 
-export PATH='/opt/local/bin:/opt/local/sbin:/Users/samt/config/scripts/bin':$PATH
+export PATH='/opt/local/bin:/opt/local/sbin:/Users/${USER}/config/scripts/bin':$PATH
 export CLASSPATH='/opt/local/var/macports/software/weka/3.6.1_0/Applications/MacPorts/Weka.app/Contents/Resources/Java/weka.jar':$CLASSPATH
 export MANPATH='/opt/local/share/man':$MANPATH
 export ZAZU='/Volumes/zazu'
@@ -23,6 +23,8 @@ alias andrew='ssh stetruas@unix.andrew.cmu.edu'
 alias andrewx='ssh -X stetruas@unix.andrew.cmu.edu'
 alias atemi='ssh samt@atemi.cdm.cs.cmu.edu'
 alias atemix='ssh -X samt@atemi.cdm.cs.cmu.edu'
+alias google='ssh samtet@samtet.nyc.corp.google.com'
+alias googlex='ssh -X samtet@samtet.nyc.corp.google.com'
 alias andrew_login='klog stetruas@andrew.cmu.edu'
 alias math='rlwrap /Applications/Mathematica.app/Contents/MacOS/MathKernel'
 alias sml='rlwrap sml'

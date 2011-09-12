@@ -24,6 +24,7 @@
     logd = log --all --date-order --decorate=full -- 
     logf = log --follow --all --date-order --decorate=full
     graph = log --graph --all --date-order --decorate=full
+    mygraph = log --graph --all --date-order --decorate=full --author=\"Sam Tetruashvili\"
     tagged = log --graph --all --date-order --decorate=full --simplify-by-decoration
     grep = grep --color
     grep-tree = !~/config/scripts/bin/git_grep_tree
