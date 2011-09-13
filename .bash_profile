@@ -34,3 +34,28 @@ alias objdump='gobjdump'
 
 source ~/config/scripts/bin/git-prompt.sh
 
+HISTSIZE=1000000
+HISTFILESIZE=2000000
+
+# Allow for shared history amongst all open terminal sessions.
+# See http://stackoverflow.com/questions/103944/real-time-history-export-amongst-bash-terminal-windows
+# for more information.
+function bash_history_sync() {
+    builtin history -a
+    HISTFILESIZE=$HISTFILESIZE
+    builtin history -c
+    builtin history -r
+}
+
+function history() {
+    bash_history_sync
+    builtin history "$@"
+}
+
+function prompt_func() {
+    git_prompt_func
+    bash_history_sync
+}
+
+PROMPT_COMMAND=prompt_func
+

@@ -118,6 +118,7 @@ endif
 vmap <leader><leader> :call SearchSelectedText()<CR>
 function SearchSelectedText()
     normal gv"sy
+    let @s = escape(@s, '\')
     :call SearchForString()
 endfunction
 
@@ -146,7 +147,7 @@ function SearchForString()
 
     " BUGFIX Manually add the currently selected text to the command line
     "        search history.
-    normal /<C-r>/<CR>
+    normal q/"/p<CR>
 endfunction
 
 let vimrc_loaded = 1
