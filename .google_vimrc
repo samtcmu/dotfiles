@@ -4,7 +4,9 @@ source /home/build/nonconf/google3/tools/tags/gtags.vim
 " Enable syntax highlighting for .proto files.
 augroup filetype
     au! BufRead,BufNewFile *.proto setfiletype proto
-    au! BufRead,BufNewFile BUILD setfiletype conf
+    au! BufRead,BufNewFile *.borg  setfiletype borg
+    au! BufRead,BufNewFile BUILD   setfiletype conf
+    au! BufRead,BufNewFile *.gcl   setfiletype gcl
 augroup end
 
 " Set up \c to open the .cc file corresponding to the .h file open in the

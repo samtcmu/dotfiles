@@ -118,6 +118,7 @@ endif
 vmap <leader><leader> :call SearchSelectedText()<CR>
 function SearchSelectedText()
     normal gv"sy
+    let @s = escape(@s, '/*~')
     :call SearchForString()
 endfunction
 
