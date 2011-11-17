@@ -17,3 +17,7 @@ nmap <leader>c :e %:r.cc<CR>
 " current buffer.
 nmap <leader>h :e %:r.h<CR>
 
+" Set up \t to open the _test.cc file correponding to the .cc or .h file open
+" in the current buffer.
+nmap <leader>t :e %:r_test.cc<CR>
+

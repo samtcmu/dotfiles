@@ -12,6 +12,7 @@ export P4EDITOR=$EDITOR
 
 alias gtags="/home/build/nonconf/google3/tools/tags/gtags.sh"
 alias find="find -L"
+alias grep="grep -H -n --color"
 
 source ~/config/scripts/bin/git-prompt.sh
 

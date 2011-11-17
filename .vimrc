@@ -24,6 +24,7 @@ if exists("vimrc_loaded")
     delfun SearchSelectedText
     delfun SearchWordUnderCursor
     delfun SearchForString
+    delfun InitHeaderFile
 endif
 
 if has('gui_running')
@@ -48,6 +49,9 @@ set listchars=tab:▸\ ,eol:¬
 
 " Set \s to toggle highlighting of search string.
 nmap <leader>s :set hlsearch!<CR>
+
+" Set up \l to highlight of lines longer than 80 characters.
+nmap <leader>l :/\%>80v.\+<CR>
 
 " Set up \v to reload my vimrc.
 nmap <leader>v :source $MYVIMRC<CR>
@@ -148,6 +152,25 @@ function SearchForString()
     " BUGFIX Manually add the currently selected text to the command line
     "        search history.
     normal /<C-r>/<CR>
+endfunction
+
+nmap <leader>I :call InitHeaderFile()<CR>
+function InitHeaderFile()
+  let @h = "// Copyright 2011 Google Inc. All Rights Reserved.\n"
+  let @h .= "// Author: samtet@google.com (Sam Tetruashvili)\n\n"
+
+  let @f = substitute(@%, '/', '_', 'g')
+  let @f = substitute(@f, '-', '_', 'g')
+  let @f = substitute(@f, '\.', '_', 'g')
+  let @f = substitute(@f, "[a-z]", "\\U\\0", "g")
+  let @f .= "_"
+
+  let @h .= "#ifndef " . @f . "\n"
+  let @h .= "#define " . @f . "\n\n"
+  let @h .= "#endif  // " . @f
+
+  normal gg
+  normal "hP
 endfunction
 
 " Google specific includes.

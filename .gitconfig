@@ -25,9 +25,14 @@
     logf = log --follow --all --date-order --decorate=full
     graph = log --graph --all --date-order --decorate=full
     mygraph = log --graph --all --date-order --decorate=full --author=\"Sam Tetruashvili\"
+    iangraph = log --graph --all --date-order --decorate=full --author=\"Ian Schenck\"
     tagged = log --graph --all --date-order --decorate=full --simplify-by-decoration
+    tags = tag -l
     grep = grep --color
     grep-tree = !~/config/scripts/bin/git_grep_tree
     smallgraph = log --graph --all --date-order --pretty=short --abbrev-commit --decorate=full
     stat = log --stat --decorate=full
+
+[diff]
+  renames = "copies"
 
