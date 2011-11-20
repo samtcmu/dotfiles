@@ -12,7 +12,7 @@
 
 # Set up github.
 [github]
-	user = samtcmu
+    user = samtcmu
     token = e2a3f76edeebaa350c4c64a08ed82a97
 
 # Turn on colors in the Git (makes the log prettier).
