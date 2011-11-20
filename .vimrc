@@ -111,16 +111,6 @@ function ToggleFolds()
     let b:FoldsOpen = !b:FoldsOpen
 endfunction
 
-if has("autocmd")
-    " Enable filetype detection and filetype plugins.
-    " note: Filetype plugins are stored in ~/.vim/ftplugin.
-    filetype on
-    filetype plugin on
-
-    " Automatically set Makefiles to use tabs instead of spaces.
-    autocmd FileType make setlocal ts=2 sts=2 sw=2 noexpandtab
-endif
-
 " Set up \\ to search for the currently selected text in visual mode.
 vmap <leader><leader> :call SearchSelectedText()<CR>
 function SearchSelectedText()
@@ -175,6 +165,16 @@ function InitHeaderFile()
   normal gg
   normal "hP
 endfunction
+
+if has("autocmd")
+    " Enable filetype detection and filetype plugins.
+    " note: Filetype plugins are stored in ~/.vim/ftplugin.
+    filetype on
+    filetype plugin on
+
+    " Automatically set Makefiles to use tabs instead of spaces.
+    autocmd FileType make setlocal ts=2 sts=2 sw=2 noexpandtab
+endif
 
 " Google specific includes.
 source ~/config/dotfiles/.google_vimrc
