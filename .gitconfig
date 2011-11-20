@@ -3,7 +3,7 @@
 # date created: Sat May 29 14:16:26 EDT 2010
 # description: Git configuration file.
 
-# last modified: Sun Mar  6 12:09:58 PST 2011
+# last modified: Sun Nov 20 17:46:39 EST 2011
 
 # Set the user name and email.
 [user]
@@ -22,6 +22,7 @@
 # Vim is my main editor.
 [core]
     editor = vim
+    excludesfile = ~/config/dotfiles/.gitignore
 
 # Git shortcuts.
 [alias]
