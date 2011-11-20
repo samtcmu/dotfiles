@@ -17,6 +17,7 @@
 # Vim is my main editor.
 [core]
     editor = vim
+    excludesfile = ~/config/dotfiles/.gitignore
 
 # Git shortcuts.
 [alias]
