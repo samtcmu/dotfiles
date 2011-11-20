@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Sat Sep 17 10:45:00 EDT 2011
+" last modified: Sun Nov 20 17:56:22 EST 2011
 
 set nocompatible
 set bs=2
@@ -48,6 +48,12 @@ set listchars=tab:▸\ ,eol:¬
 
 " Set \s to toggle highlighting of search string.
 nmap <leader>s :set hlsearch!<CR>
+
+" Set up \a to toggle spellcheck.
+nmap <leader>a :set spell!<CR>
+
+" Set up \l to highlight of lines longer than 80 characters.
+nmap <leader>l :/\%>80v.\+<CR>
 
 " Set up \v to reload my vimrc.
 nmap <leader>v :source $MYVIMRC<CR>
