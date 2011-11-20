@@ -10,6 +10,11 @@
     name = Sam Tetruashvili
     email = samt@alumni.cmu.edu
 
+# Set up github.
+[github]
+	user = samtcmu
+    token = e2a3f76edeebaa350c4c64a08ed82a97
+
 # Turn on colors in the Git (makes the log prettier).
 [color]
     ui = true
