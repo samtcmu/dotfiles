@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Sun Nov 20 17:56:22 EST 2011
+" last modified: Sun Nov 20 18:00:08 EST 2011
 
 set nocompatible
 set bs=2
@@ -114,6 +114,7 @@ endfunction
 vmap <leader><leader> :call SearchSelectedText()<CR>
 function SearchSelectedText()
     normal gv"sy
+    let @s = escape(@s, '/*~')
     :call SearchForString()
 endfunction
 
