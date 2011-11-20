@@ -34,7 +34,7 @@ syn keyword cppNumber         NPOS
 syn keyword cppBoolean        true false
 
 " Custom C++ extensions.
-syn keyword googleCppType   string StringPiece Mapper Reducer uint64
+syn keyword googleCppType   string StringPiece Mapper Reducer uint64 uint32 int32 int64
 syn keyword googleCppStatement Output OutputProto OutputProto2
 
 " The minimum and maximum operators in GNU C++

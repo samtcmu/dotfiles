@@ -50,6 +50,9 @@ set listchars=tab:▸\ ,eol:¬
 " Set \s to toggle highlighting of search string.
 nmap <leader>s :set hlsearch!<CR>
 
+" Set up \a to toggle spellcheck.
+nmap <leader>a :set spell!<CR>
+
 " Set up \l to highlight of lines longer than 80 characters.
 nmap <leader>l :/\%>80v.\+<CR>
 
