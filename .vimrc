@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Wed Sep  7 13:16:41 EDT 2011
+" last modified: Sun Nov 20 18:00:08 EST 2011
 
 set nocompatible
 set bs=2
@@ -48,6 +48,12 @@ set listchars=tab:▸\ ,eol:¬
 
 " Set \s to toggle highlighting of search string.
 nmap <leader>s :set hlsearch!<CR>
+
+" Set up \a to toggle spellcheck.
+nmap <leader>a :set spell!<CR>
+
+" Set up \l to highlight of lines longer than 80 characters.
+nmap <leader>l :/\%>80v.\+<CR>
 
 " Set up \v to reload my vimrc.
 nmap <leader>v :source $MYVIMRC<CR>
@@ -104,21 +110,11 @@ function ToggleFolds()
     let b:FoldsOpen = !b:FoldsOpen
 endfunction
 
-if has("autocmd")
-    " Enable filetype detection and filetype plugins.
-    " note: Filetype plugins are stored in ~/.vim/ftplugin.
-    filetype on
-    filetype plugin on
-
-    " Automatically set Makefiles to use tabs instead of spaces.
-    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-endif
-
 " Set up \\ to search for the currently selected text in visual mode.
 vmap <leader><leader> :call SearchSelectedText()<CR>
 function SearchSelectedText()
     normal gv"sy
-    let @s = escape(@s, '\')
+    let @s = escape(@s, '/*~')
     :call SearchForString()
 endfunction
 
@@ -147,8 +143,18 @@ function SearchForString()
 
     " BUGFIX Manually add the currently selected text to the command line
     "        search history.
-    normal q/"/p<CR>
+    normal /<C-r>/<CR>
 endfunction
+
+if has("autocmd")
+    " Enable filetype detection and filetype plugins.
+    " note: Filetype plugins are stored in ~/.vim/ftplugin.
+    filetype on
+    filetype plugin on
+
+    " Automatically set Makefiles to use tabs instead of spaces.
+    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+endif
 
 let vimrc_loaded = 1
 
