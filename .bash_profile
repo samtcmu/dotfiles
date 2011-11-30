@@ -59,3 +59,6 @@ function prompt_func() {
 
 PROMPT_COMMAND=prompt_func
 
+# Set custom key-bindings.
+bind -f ~/config/dotfiles/.bash_key_bindings
+
