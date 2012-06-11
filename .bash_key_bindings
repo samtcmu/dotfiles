@@ -1,2 +1,4 @@
 "\C-f": forward-word
 "\C-b": backward-word
+"\C-p": forward-word
+"\C-n": backward-word

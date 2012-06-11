@@ -18,6 +18,8 @@ export CPU_WWW='/Library/WebServer/'
 
 export GALILEO='galileo.redmond.corp.microsoft.com'
 
+export EDITOR='vim'
+
 # Set up alias commands for simics.
 alias andrew='ssh stetruas@unix.andrew.cmu.edu'
 alias andrewx='ssh -X stetruas@unix.andrew.cmu.edu'
@@ -29,7 +31,7 @@ alias andrew_login='klog stetruas@andrew.cmu.edu'
 alias math='rlwrap /Applications/Mathematica.app/Contents/MacOS/MathKernel'
 alias sml='rlwrap sml'
 alias sed='gsed'
-alias grep='grep --color'
+alias grep='grep -H -n -r --color'
 alias objdump='gobjdump'
 
 source ~/config/scripts/bin/git-prompt.sh
