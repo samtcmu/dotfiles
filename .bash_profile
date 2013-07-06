@@ -5,7 +5,7 @@
 
 # last modified: Mon Sep 12 13:23:42 EDT 2011
 
-export PATH='/opt/local/bin:/opt/local/sbin:/Users/${USER}/config/scripts/bin':$PATH
+export PATH="/opt/local/bin:/opt/local/sbin:/Users/${USER}/config/scripts/bin":$PATH
 export CLASSPATH='/opt/local/var/macports/software/weka/3.6.1_0/Applications/MacPorts/Weka.app/Contents/Resources/Java/weka.jar':$CLASSPATH
 export MANPATH='/opt/local/share/man':$MANPATH
 export ZAZU='/Volumes/zazu'
@@ -15,6 +15,10 @@ export CMU='/Users/samt/private/cmu/term7'
 export CDMWWW='/afs/andrew.cmu.edu/course/15/354/www'
 export ANDREW='/afs/andrew.cmu.edu/usr23/stetruas'
 export CPU_WWW='/Library/WebServer/'
+export GDFONTPATH='/System/Library/Fonts:/Library/Fonts':${GDFONTPATH}
+
+# TODO(samtet): Comment this out if you want to go back to 256 color mode.
+export TERM='xterm'
 
 export GALILEO='galileo.redmond.corp.microsoft.com'
 
@@ -27,12 +31,14 @@ alias atemi='ssh samt@atemi.cdm.cs.cmu.edu'
 alias atemix='ssh -X samt@atemi.cdm.cs.cmu.edu'
 alias google='ssh samtet@samtet.nyc.corp.google.com'
 alias googlex='ssh -X samtet@samtet.nyc.corp.google.com'
+alias ubiquity='ssh samtet-ubiquity.hot.corp.google.com'
 alias andrew_login='klog stetruas@andrew.cmu.edu'
 alias math='rlwrap /Applications/Mathematica.app/Contents/MacOS/MathKernel'
 alias sml='rlwrap sml'
 alias sed='gsed'
 alias grep='grep -H -n -r --color'
 alias objdump='gobjdump'
+alias python='python2.7'
 
 source ~/config/scripts/bin/git-prompt.sh
 

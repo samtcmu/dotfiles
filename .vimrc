@@ -17,6 +17,7 @@ set spellfile=~/.vim/spellfile.add
 set tags=tags;/
 set history=100
 
+
 if exists("vimrc_loaded")
     delfun GetCurrentDate
     delfun UpdateLastModifiedDate
@@ -43,6 +44,9 @@ call pathogen#helptags()
 runtime ftplugin/man.vim
 
 " Set up \e to toggle the visibility of invisible characters.
+" note: listchars doesn't work for vim running in Terminal.app unless I set
+"       encoding to utf-8.
+set encoding=utf-8
 nmap <leader>e :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 
@@ -63,6 +67,9 @@ nmap <leader>V :e $MYVIMRC<CR>
 
 " Set up \u to toggle the Gundo window.
 nmap <leader>u :GundoToggle<CR>
+
+" Set up \b to start a build with make.
+nmap <leader>b :!make<CR>
 
 " Set up \d to updated the 'last modified' date in a file.
 nmap <leader>d :call UpdateLastModifiedDate()<CR>
@@ -154,6 +161,10 @@ if has("autocmd")
 
     " Automatically set Makefiles to use tabs instead of spaces.
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+endif
+
+if exists(":Tabularize")
+   nmap <leader>t :Tabularize /\|<CR>
 endif
 
 let vimrc_loaded = 1

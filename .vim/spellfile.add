@@ -27,3 +27,12 @@ offline
 Bellevue
 #ermititus
 dermititus/!
+backend/!
+#rchitected
+backend
+BigTable
+MapReduce
+Dremel
+ColumnIO
+frontend
+DFA
