@@ -163,9 +163,8 @@ if has("autocmd")
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
 endif
 
-if exists(":Tabularize")
-   nmap <leader>t :Tabularize /\|<CR>
-endif
+nmap <leader>t :Tabularize /\|<CR>
+vmap <leader>t :Tabularize /\|<CR>
 
 let vimrc_loaded = 1
 
