@@ -17,7 +17,6 @@ set spellfile=~/.vim/spellfile.add
 set tags=tags;/
 set history=100
 
-
 if exists("vimrc_loaded")
     delfun GetCurrentDate
     delfun UpdateLastModifiedDate
@@ -25,6 +24,9 @@ if exists("vimrc_loaded")
     delfun SearchSelectedText
     delfun SearchWordUnderCursor
     delfun SearchForString
+    delfun OpenCFile
+    delfun OpenHFile
+    delfun OpenTestFile
 endif
 
 if has('gui_running')
@@ -90,6 +92,39 @@ function UpdateLastModifiedDate()
         normal f:lld$
         :r!date
         normal kJ
+    endif
+endfunction
+
+" Open .cc file from .h or _test.cc files.
+function! OpenCFile()
+    if @% =~ ".h"
+        :let cc_file = substitute(@%, "\.h", "\.cc", "g")
+        :execute "e " . cc_file
+    elseif @% =~ "_test.cc"
+        :let cc_file = substitute(@%, "_test\.cc", "\.cc", "g")
+        :execute "e " . cc_file
+    endif
+endfunction
+
+"Open .h file from _test.cc or .cc file.
+function! OpenHFile()
+    if @% =~ "_test.cc"
+        :let h_file = substitute(@%, "_test\.cc", "\.h", "g")
+        :execute "e " . h_file
+    elseif @% =~ ".cc"
+        :let h_file = substitute(@%, "\.cc", "\.h", "g")
+        :execute "e " . h_file
+    endif
+endfunction
+
+"Open _test.cc file from .cc or .h file.
+function! OpenTestFile()
+    if @% =~ ".cc"
+        :let test_file = substitute(@%, "\.cc", "_test\.cc", "g")
+        :execute "e " . test_file
+    elseif @% =~ ".h"
+        :let test_file = substitute(@%, "\.h", "_test\.cc", "g")
+        :execute "e " . test_file
     endif
 endfunction
 
@@ -161,10 +196,12 @@ if has("autocmd")
 
     " Automatically set Makefiles to use tabs instead of spaces.
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType cpp nmap <leader>c :call OpenCFile()<CR>
+    autocmd FileType cpp nmap <leader>h :call OpenHFile()<CR>
+    autocmd FileType cpp nmap <leader>t :call OpenTestFile()<CR>
 endif
 
-nmap <leader>t :Tabularize /\|<CR>
-vmap <leader>t :Tabularize /\|<CR>
+nmap <leader>T :Tabularize /\|<CR>
+vmap <leader>T :Tabularize /\|<CR>
 
 let vimrc_loaded = 1
-
