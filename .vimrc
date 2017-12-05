@@ -27,6 +27,7 @@ if exists("vimrc_loaded")
     delfun OpenCFile
     delfun OpenHFile
     delfun OpenTestFile
+    delfun AddIncludeGuard
 endif
 
 if has('gui_running')
@@ -203,5 +204,19 @@ endif
 
 nmap <leader>T :Tabularize /\|<CR>
 vmap <leader>T :Tabularize /\|<CR>
+
+nmap <leader>I :call AddIncludeGuard()<CR>
+function AddIncludeGuard()
+    :let temp = @x
+    :let include_guard = toupper(substitute(@%, "[-/.]", "_", "g"))
+    :let @x = include_guard
+    :normal i#ifndef 
+    :normal "xpo
+    :normal i#define 
+    :normal "xpo
+    :normal i#endif  //
+    :normal "xp
+    :let @x = temp
+endfunction
 
 let vimrc_loaded = 1

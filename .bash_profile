@@ -39,6 +39,7 @@ alias sed='gsed'
 alias grep='grep -H -n -r --color'
 alias objdump='gobjdump'
 alias python='python2.7'
+alias flushdns='sudo killall -HUP mDNSResponder'
 
 source ~/config/scripts/bin/git-prompt.sh
 
