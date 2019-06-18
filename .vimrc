@@ -1,6 +1,6 @@
 " name: Sam Tetruashvili (samt@alumni.cmu.edu)
 " title: .vimrc
-" date created: Mon May 30 22:14:34 PDT 2011
+"333 date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
 " last modified: Sun Nov 20 18:00:08 EST 2011
@@ -28,7 +28,16 @@ if exists("vimrc_loaded")
     delfun OpenHFile
     delfun OpenTestFile
     delfun AddIncludeGuard
+    delfun EditLedgerLine
 endif
+
+" Used to edit ledger files line item amount start columns.
+function EditLedgerLine()
+    :normal 66|"lyl
+    if !(@l == "-" || @l == " ")
+        :normal 65|i
+    endif
+endfunction
 
 if has('gui_running')
     " color solarized
@@ -189,6 +198,10 @@ function SearchForString()
     normal /<C-r>/<CR>
 endfunction
 
+" Calculates the text from the current cursor to the end of the current line.
+nmap <leader>x maDa<C-r>=<C-r>"<CR><ESC>`a
+vmap <leader>x maxi<C-r>=<C-r>"<CR><ESC>`a
+
 if has("autocmd")
     " Enable filetype detection and filetype plugins.
     " note: Filetype plugins are stored in ~/.vim/ftplugin.
@@ -200,6 +213,9 @@ if has("autocmd")
     autocmd FileType cpp nmap <leader>c :call OpenCFile()<CR>
     autocmd FileType cpp nmap <leader>h :call OpenHFile()<CR>
     autocmd FileType cpp nmap <leader>t :call OpenTestFile()<CR>
+
+    " Ledger commands.
+    autocmd FileType ledger nmap <leader>c :call ledger#transaction_state_set(line('.'), '*')<CR>
 endif
 
 nmap <leader>T :Tabularize /\|<CR>

@@ -45,6 +45,9 @@ source ~/config/scripts/bin/git-prompt.sh
 
 HISTSIZE=1000000
 HISTFILESIZE=2000000
+# Disable bash sessions.
+# alternative: touch ~/.bash_sessions_disable
+SHELL_SESSION_HISTORY=0
 
 # Allow for shared history amongst all open terminal sessions.
 # See http://stackoverflow.com/questions/103944/real-time-history-export-amongst-bash-terminal-windows
@@ -71,7 +74,6 @@ PROMPT_COMMAND=prompt_func
 # Set custom key-bindings.
 bind -f ~/config/dotfiles/.bash_key_bindings
 
-
 ##
 # Your previous /Users/samtet/.bash_profile file was backed up as /Users/samtet/.bash_profile.macports-saved_2015-12-25_at_19:16:23
 ##
@@ -80,3 +82,4 @@ bind -f ~/config/dotfiles/.bash_key_bindings
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+export JAVA_HOME=$(/usr/libexec/java_home)
