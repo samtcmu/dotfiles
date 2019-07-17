@@ -31,6 +31,7 @@ alias atemi='ssh samt@atemi.cdm.cs.cmu.edu'
 alias atemix='ssh -X samt@atemi.cdm.cs.cmu.edu'
 alias google='ssh samtet@maxwell.nyc.corp.google.com'
 alias googlex='ssh -X samtet@maxwell.nyc.corp.google.com'
+alias fb='ssh stet@devvm114.ash3.facebook.com'
 alias ubiquity='ssh samtet-ubiquity.hot.corp.google.com'
 alias andrew_login='klog stetruas@andrew.cmu.edu'
 alias math='rlwrap /Applications/Mathematica.app/Contents/MacOS/MathKernel'
@@ -74,12 +75,7 @@ PROMPT_COMMAND=prompt_func
 # Set custom key-bindings.
 bind -f ~/config/dotfiles/.bash_key_bindings
 
-##
-# Your previous /Users/samtet/.bash_profile file was backed up as /Users/samtet/.bash_profile.macports-saved_2015-12-25_at_19:16:23
-##
+# export JAVA_HOME=$(/usr/libexec/java_home)
 
-# MacPorts Installer addition on 2015-12-25_at_19:16:23: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-export JAVA_HOME=$(/usr/libexec/java_home)
+# Fixes hanging issue on fb dev servers.
+unset command_not_found_handlek
