@@ -29,6 +29,7 @@ if exists("vimrc_loaded")
     delfun OpenTestFile
     delfun AddIncludeGuard
     delfun EditLedgerLine
+    delfun Calculate
 endif
 
 " Used to edit ledger files line item amount start columns.
@@ -199,8 +200,21 @@ function SearchForString()
 endfunction
 
 " Calculates the text from the current cursor to the end of the current line.
-nmap <leader>x maDa<C-r>=<C-r>"<CR><ESC>`a
 vmap <leader>x maxi<C-r>=<C-r>"<CR><ESC>`a
+nmap <leader>x :call Calculate()<CR>
+function Calculate()
+    normal ma
+    normal "sDa
+    :let @s = substitute(@s, "(", "\\\\(", "g")
+    :let @s = substitute(@s, ")", "\\\\)", "g")
+    :let command = 'calc ' . @s
+    execute 'r!' . command
+    normal kJ`a
+    if getline(".") =~ ","
+        :. s/,//g
+    endif
+    normal `a
+endfunction
 
 if has("autocmd")
     " Enable filetype detection and filetype plugins.
