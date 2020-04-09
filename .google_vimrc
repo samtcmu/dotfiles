@@ -1,5 +1,5 @@
 " Enable gtags
-source /home/build/nonconf/google3/tools/tags/gtags.vim
+" source /home/build/nonconf/google3/tools/tags/gtags.vim
 
 " Enable syntax highlighting for .proto files.
 augroup filetype
@@ -21,3 +21,9 @@ nmap <leader>h :e %:r.h<CR>
 " in the current buffer.
 nmap <leader>t :e %:r_test.cc<CR>
 
+" Set up \d to open the directory the current file is in.
+nmap <leader>d :e %:h<CR>
+
+" Set up \D to start typing a filename name to open within the current
+" directory.
+nmap <leader>D :e <c-r>=expand("%:h")<CR>/

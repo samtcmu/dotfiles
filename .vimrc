@@ -3,7 +3,7 @@
 " date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
-" last modified: Wed Sep  7 11:12:15 EDT 2011
+" last modified: Thu 09 Apr 2020 03:48:51 PM UTC
 
 set nocompatible
 set bs=2
@@ -34,6 +34,8 @@ if has('gui_running')
     set guioptions= 
 else
     color desert
+    set bg=light
+    set bg=dark
 endif
 
 " Initialize the pathogen plugin.
@@ -66,7 +68,7 @@ nmap <leader>V :e $MYVIMRC<CR>
 nmap <leader>u :GundoToggle<CR>
 
 " Set up \d to updated the 'last modified' date in a file.
-nmap <leader>d :call UpdateLastModifiedDate()<CR>
+" nmap <leader>d :call UpdateLastModifiedDate()<CR>
 function GetCurrentDate()
     normal mh
     :r!date
@@ -77,7 +79,7 @@ endfunction
 
 " Set up \D to paste the current date (via the UNIX date command after the
 " current cursor location.
-nmap <leader>D :call GetCurrentDate()<CR>
+" nmap <leader>D :call GetCurrentDate()<CR>
 function UpdateLastModifiedDate()
     normal gg
     if search("last modified:") > 0

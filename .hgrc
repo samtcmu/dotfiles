@@ -1,0 +1,4 @@
+[alias]
+export = upload chain
+graph = log --graph --git
+mygraph = log --graph --git --user=samtet
