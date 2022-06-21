@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/ledger"]
 	path = .vim/bundle/ledger
 	url = https://github.com/ledger/vim-ledger
+[submodule ".vim/bundle/commentary"]
+	path = .vim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git

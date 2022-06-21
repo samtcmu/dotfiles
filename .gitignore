@@ -1,5 +1,9 @@
 .DS_Store
 .netrwhist
+*.swo
 *.swp
+*.swm
+*.swn
+*.swl
 tags
 *.pyc

@@ -13,7 +13,7 @@
 # Set up github.
 [github]
     user = samtcmu
-    token = e2a3f76edeebaa350c4c64a08ed82a97
+    token = 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
 
 # Turn on colors in the Git (makes the log prettier).
 [color]
@@ -29,6 +29,7 @@
     amend = commit --amend
     logd = log --all --date-order --decorate=full -- 
     logf = log --follow --all --date-order --decorate=full
+    g = graph
     graph = log --graph --all --date-order --decorate=full
     mygraph = log --graph --all --date-order --decorate=full --author=\"Sam Tetruashvili\"
     tagged = log --graph --all --date-order --decorate=full --simplify-by-decoration
@@ -36,4 +37,7 @@
     grep-tree = !~/config/scripts/bin/git_grep_tree
     smallgraph = log --graph --all --date-order --pretty=short --abbrev-commit --decorate=full
     stat = log --stat --decorate=full
+    s = status
 
+[credential]
+	helper = cache

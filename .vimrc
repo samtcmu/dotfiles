@@ -30,6 +30,7 @@ if exists("vimrc_loaded")
     delfun AddIncludeGuard
     delfun EditLedgerLine
     delfun Calculate
+    delfun ToggleComments
 endif
 
 " Used to edit ledger files line item amount start columns.
@@ -234,6 +235,13 @@ endif
 
 nmap <leader>T :Tabularize /\|<CR>
 vmap <leader>T :Tabularize /\|<CR>
+
+" TODO(samt): Try to activate comment toggles with command+/ on a Mac (<M-/>
+" in vim).
+vmap <leader>z :call ToggleComments()<CR>
+function ToggleComments()
+    " TODO(samt): Implement a function that toggles comments.
+endfunction
 
 nmap <leader>I :call AddIncludeGuard()<CR>
 function AddIncludeGuard()
