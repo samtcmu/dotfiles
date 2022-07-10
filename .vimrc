@@ -1,6 +1,6 @@
 " name: Sam Tetruashvili (samt@alumni.cmu.edu)
 " title: .vimrc
-"333 date created: Mon May 30 22:14:34 PDT 2011
+" date created: Mon May 30 22:14:34 PDT 2011
 " description: This file contains my Vim settings.
 
 " last modified: Sun Nov 20 18:00:08 EST 2011
@@ -30,7 +30,6 @@ if exists("vimrc_loaded")
     delfun AddIncludeGuard
     delfun EditLedgerLine
     delfun Calculate
-    delfun ToggleComments
 endif
 
 " Used to edit ledger files line item amount start columns.
@@ -236,12 +235,10 @@ endif
 nmap <leader>T :Tabularize /\|<CR>
 vmap <leader>T :Tabularize /\|<CR>
 
-" TODO(samt): Try to activate comment toggles with command+/ on a Mac (<M-/>
-" in vim).
-vmap <leader>z :call ToggleComments()<CR>
-function ToggleComments()
-    " TODO(samt): Implement a function that toggles comments.
-endfunction
+nmap <C-\> :Commentary<CR>
+vmap <C-\> :Commentary<CR>
+
+nmap <leader>r :e!%<CR>
 
 nmap <leader>I :call AddIncludeGuard()<CR>
 function AddIncludeGuard()
@@ -256,5 +253,7 @@ function AddIncludeGuard()
     :normal "xp
     :let @x = temp
 endfunction
+
+autocmd FileType cpp setlocal commentstring=\/\/\ %s
 
 let vimrc_loaded = 1
