@@ -13,7 +13,7 @@
 # Set up github.
 [github]
     user = samtcmu
-    token = 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
+    token = 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
 
 # Turn on colors in the Git (makes the log prettier).
 [color]
